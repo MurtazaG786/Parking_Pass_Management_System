@@ -74,157 +74,156 @@ A web-based **Parking Pass Management System** designed to automate parking oper
 
 ---
 
-## 🗓️ Project Structure
+## 📁 Project Structure
+
 parking-pass-management-system/
 │
 ├── README.md
 ├── package.json
 ├── .gitignore
 │
-├── client/                          # Frontend (React)
-│   ├── package.json
-│   ├── public/
-│   │   ├── index.html
-│   │   └── favicon.ico
-│   │
-│   └── src/
-│       ├── assets/                  # Images, icons
-│       │   ├── logo/
-│       │   └── illustrations/
-│       │
-│       ├── components/              # Reusable UI components
-│       │   ├── common/
-│       │   │   ├── Button.jsx
-│       │   │   ├── Input.jsx
-│       │   │   ├── Modal.jsx
-│       │   │   └── Loader.jsx
-│       │   │
-│       │   ├── layout/
-│       │   │   ├── Navbar.jsx
-│       │   │   ├── Sidebar.jsx
-│       │   │   └── Footer.jsx
-│       │
-│       ├── pages/                   # Role-based screens
-│       │   ├── auth/
-│       │   │   ├── Login.jsx
-│       │   │   └── Register.jsx
-│       │   │
-│       │   ├── admin/
-│       │   │   ├── Dashboard.jsx
-│       │   │   ├── Buildings.jsx
-│       │   │   ├── Basements.jsx
-│       │   │   ├── ParkingSlots.jsx
-│       │   │   ├── Pricing.jsx
-│       │   │   ├── Subscriptions.jsx
-│       │   │   ├── SecurityManagement.jsx
-│       │   │   └── Reports.jsx
-│       │   │
-│       │   ├── security/
-│       │   │   ├── Entry.jsx
-│       │   │   ├── Exit.jsx
-│       │   │   ├── SlotAllocation.jsx
-│       │   │   ├── Ticket.jsx
-│       │   │   └── PaymentVerification.jsx
-│       │   │
-│       │   └── driver/
-│       │       ├── Dashboard.jsx
-│       │       ├── SlotAvailability.jsx
-│       │       ├── TicketView.jsx
-│       │       ├── Payment.jsx
-│       │       └── Subscription.jsx
-│       │
-│       ├── services/                # API calls
-│       │   ├── authService.js
-│       │   ├── adminService.js
-│       │   ├── securityService.js
-│       │   └── driverService.js
-│       │
-│       ├── routes/
-│       │   ├── PrivateRoute.jsx
-│       │   └── RoleRoute.jsx
-│       │
-│       ├── context/                 # Global state
-│       │   ├── AuthContext.jsx
-│       │   └── SocketContext.jsx
-│       │
-│       ├── utils/
-│       │   ├── constants.js
-│       │   └── helpers.js
-│       │
-│       ├── App.jsx
-│       └── main.jsx
+├── client/ # Frontend (React)
+│ ├── package.json
+│ ├── public/
+│ │ ├── index.html
+│ │ └── favicon.ico
+│ │
+│ └── src/
+│ ├── assets/
+│ │ ├── images/
+│ │ ├── icons/
+│ │ └── logo/
+│ │
+│ ├── components/
+│ │ ├── common/
+│ │ │ ├── Button.jsx
+│ │ │ ├── Input.jsx
+│ │ │ ├── Modal.jsx
+│ │ │ └── Loader.jsx
+│ │ │
+│ │ └── layout/
+│ │ ├── Navbar.jsx
+│ │ ├── Sidebar.jsx
+│ │ └── Footer.jsx
+│ │
+│ ├── pages/
+│ │ ├── auth/
+│ │ │ ├── Login.jsx
+│ │ │ └── Register.jsx
+│ │ │
+│ │ ├── admin/
+│ │ │ ├── Dashboard.jsx
+│ │ │ ├── Buildings.jsx
+│ │ │ ├── Basements.jsx
+│ │ │ ├── ParkingSlots.jsx
+│ │ │ ├── Pricing.jsx
+│ │ │ ├── Subscriptions.jsx
+│ │ │ ├── SecurityManagement.jsx
+│ │ │ └── Reports.jsx
+│ │ │
+│ │ ├── security/
+│ │ │ ├── Entry.jsx
+│ │ │ ├── Exit.jsx
+│ │ │ ├── SlotAllocation.jsx
+│ │ │ ├── Ticket.jsx
+│ │ │ └── PaymentVerification.jsx
+│ │ │
+│ │ └── driver/
+│ │ ├── Dashboard.jsx
+│ │ ├── SlotAvailability.jsx
+│ │ ├── TicketView.jsx
+│ │ ├── Payment.jsx
+│ │ └── Subscription.jsx
+│ │
+│ ├── services/
+│ │ ├── authService.js
+│ │ ├── adminService.js
+│ │ ├── securityService.js
+│ │ └── driverService.js
+│ │
+│ ├── routes/
+│ │ ├── PrivateRoute.jsx
+│ │ └── RoleRoute.jsx
+│ │
+│ ├── context/
+│ │ ├── AuthContext.jsx
+│ │ └── SocketContext.jsx
+│ │
+│ ├── utils/
+│ │ ├── constants.js
+│ │ └── helpers.js
+│ │
+│ ├── App.jsx
+│ └── main.jsx
 │
-├── server/                          # Backend (Node.js + Express)
-│   ├── package.json
-│   ├── .env.example
-│   │
-│   ├── config/
-│   │   ├── db.js                    # MongoDB connection
-│   │   ├── jwt.js                   # JWT config
-│   │   └── socket.js                # Socket.IO config
-│   │
-│   ├── models/                      # Database schemas
-│   │   ├── User.model.js
-│   │   ├── Building.model.js
-│   │   ├── Basement.model.js
-│   │   ├── ParkingSlot.model.js
-│   │   ├── Vehicle.model.js
-│   │   ├── ParkingSession.model.js
-│   │   ├── Subscription.model.js
-│   │   ├── Payment.model.js
-│   │   └── Ticket.model.js
-│   │
-│   ├── controllers/                 # Business logic
-│   │   ├── auth.controller.js
-│   │   ├── admin.controller.js
-│   │   ├── security.controller.js
-│   │   ├── driver.controller.js
-│   │   ├── parking.controller.js
-│   │   ├── billing.controller.js
-│   │   └── report.controller.js
-│   │
-│   ├── routes/                      # API routes
-│   │   ├── auth.routes.js
-│   │   ├── admin.routes.js
-│   │   ├── security.routes.js
-│   │   ├── driver.routes.js
-│   │   ├── parking.routes.js
-│   │   ├── billing.routes.js
-│   │   └── report.routes.js
-│   │
-│   ├── middleware/
-│   │   ├── auth.middleware.js       # JWT validation
-│   │   ├── role.middleware.js       # RBAC enforcement
-│   │   ├── error.middleware.js
-│   │   └── validate.middleware.js
-│   │
-│   ├── services/                    # External integrations
-│   │   ├── payment.service.js       # Razorpay / Stripe
-│   │   ├── notification.service.js  # SMS / Email
-│   │   └── slot.service.js          # Slot allocation logic
-│   │
-│   ├── utils/
-│   │   ├── constants.js
-│   │   ├── helpers.js
-│   │   └── logger.js
-│   │
-│   ├── app.js                       # Express app setup
-│   └── server.js                    # Entry point
+├── server/ # Backend (Node.js + Express)
+│ ├── package.json
+│ ├── .env.example
+│ │
+│ ├── config/
+│ │ ├── db.js
+│ │ ├── jwt.js
+│ │ └── socket.js
+│ │
+│ ├── models/
+│ │ ├── User.model.js
+│ │ ├── Building.model.js
+│ │ ├── Basement.model.js
+│ │ ├── ParkingSlot.model.js
+│ │ ├── Vehicle.model.js
+│ │ ├── ParkingSession.model.js
+│ │ ├── Subscription.model.js
+│ │ ├── Payment.model.js
+│ │ └── Ticket.model.js
+│ │
+│ ├── controllers/
+│ │ ├── auth.controller.js
+│ │ ├── admin.controller.js
+│ │ ├── security.controller.js
+│ │ ├── driver.controller.js
+│ │ ├── parking.controller.js
+│ │ ├── billing.controller.js
+│ │ └── report.controller.js
+│ │
+│ ├── routes/
+│ │ ├── auth.routes.js
+│ │ ├── admin.routes.js
+│ │ ├── security.routes.js
+│ │ ├── driver.routes.js
+│ │ ├── parking.routes.js
+│ │ ├── billing.routes.js
+│ │ └── report.routes.js
+│ │
+│ ├── middleware/
+│ │ ├── auth.middleware.js
+│ │ ├── role.middleware.js
+│ │ ├── error.middleware.js
+│ │ └── validate.middleware.js
+│ │
+│ ├── services/
+│ │ ├── payment.service.js
+│ │ ├── notification.service.js
+│ │ └── slot.service.js
+│ │
+│ ├── utils/
+│ │ ├── constants.js
+│ │ ├── helpers.js
+│ │ └── logger.js
+│ │
+│ ├── app.js
+│ └── server.js
 │
-├── docs/                            # Documentation
-    ├── requirements/
-    │   └── Parking_Pass_Requirements.pdf
-    │
-    ├── uml/
-    │   ├── usecase-diagram.png
-    │   ├── class-diagram.png
-    │   ├── activity-diagram.png
-    │   ├── dfd-diagram.png
-    │   └── component-diagram.png
-    │
-    └── api/
-        └── api-spec.md
-
+└── docs/
+├── requirements/
+│ └── Parking_Pass_Requirements.pdf
+├── uml/
+│ ├── usecase-diagram.png
+│ ├── class-diagram.png
+│ ├── activity-diagram.png
+│ ├── dfd-diagram.png
+│ └── component-diagram.png
+└── api/
+└── api-spec.md
 
 
 ---
