@@ -142,9 +142,6 @@ parking-pass-management-system/
 │       │   ├── securityService.js
 │       │   └── driverService.js
 │       │
-│       ├── routes/
-│       │   ├── PrivateRoute.jsx
-│       │   └── RoleRoute.jsx
 │       │
 │       ├── context/
 │       │   ├── AuthContext.jsx
@@ -156,6 +153,7 @@ parking-pass-management-system/
 │       │
 │       ├── App.jsx
 │       └── main.jsx
+|       └── routes.jsx
 │
 ├── server/
 │   ├── package.json
